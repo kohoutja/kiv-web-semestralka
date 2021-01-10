@@ -1,0 +1,70 @@
+<div class="container">
+    <button class="btn btn-secondary" onclick="goBack()">Zpět na recenze</button>
+    <br><br>
+    <b>Název: </b>{{ title }}
+    <br>
+    <b>Autor: </b>{{ fullName }}
+    <br><br>
+    <p>
+        {{ description }}
+        {{ attachment | raw }}
+    </p>
+</div>
+<hr>
+<div>
+    <h2>Hodnocení</h2>
+    <form id="reviewForm" method="POST">
+        <div class="form-group">
+            <table class="w-100">
+                <tbody>
+                <tr>
+                    <td>
+                        <label for="criterion1">Téma</label>
+                    </td>
+                    <td>
+                        <select class="form-control" name="criterion1" id="criterion1" required>
+                            {{ options | raw }}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="criterion2">Kvalita zpracování</label>
+                    </td>
+                    <td>
+                        <select class="form-control" name="criterion2" id="criterion2" required>
+                            {{ options | raw }}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="criterion3">Jazyková úroveň</label>
+                    </td>
+                    <td>
+                        <select class="form-control" name="criterion3" id="criterion3" required>
+                            {{ options | raw }}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="overall">Celkové hodnocení</label>
+                    </td>
+                    <td>
+                        <select class="form-control" name="overall" id="overall" required>
+                            {{ options | raw }}
+                        </select>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <label for="reviewText">Komentář (nepovinný)</label>
+            <textarea class="w-100 form-control" name="reviewText" id="reviewText" rows="10"
+                      placeholder="Komentář k příspěvku">{{ text }}</textarea>
+        </div>
+        <button class="btn btn-primary float-right" type="button" id="createReview">Odeslat recenzi</button>
+        <br>
+        <span class="float-right form-error" id="reviewError"></span>
+    </form>
+</div>

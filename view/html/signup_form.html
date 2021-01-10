@@ -1,0 +1,35 @@
+<form id="signupForm" class="signin-form" method="post">
+    <label id="signupError" class="form-error"></label>
+    <div class="form-group">
+        <label for="username">Uživatelské jméno</label>
+        <input type="text" class="form-control" id="username" name="username" placeholder="Zadejte uživatelské jméno"
+               autofocus onchange="onInputChange(this)">
+        <label id="usernameError" class="form-control-error-label"></label>
+    </div>
+    <div class="form-group">
+        <label for="password">Heslo</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Zadejte heslo"
+               onchange="onInputChange(this)">
+        <label id="passwordError" class="form-control-error-label"></label>
+    </div>
+    <div class="form-group">
+        <label for="passwordConfirm">Potvrzení hesla</label>
+        <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm"
+               placeholder="Zadejte heslo" onchange="onInputChange(this)">
+        <label id="passwordConfirmError" class="form-control-error-label"></label>
+    </div>
+    <div class="form-group">
+        <label for="fullName">Jméno</label>
+        <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Zadejte vaše jméno"
+               onchange="onInputChange(this)">
+        <label id="fullNameError" class="form-control-error-label"></label>
+    </div>
+    <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Zadejte e-mail"
+               onchange="onInputChange(this)">
+        <label id="emailError" class="form-control-error-label"></label>
+    </div>
+    <button type="submit" class="btn btn-primary" id="signup">Vytvořit účet</button>
+    <button type="button" class="btn btn-secondary" id="cancel">Zrušit</button>
+</form>

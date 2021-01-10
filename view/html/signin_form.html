@@ -1,0 +1,17 @@
+<form method="post" id="signinForm" class="signin-form">
+    <label id="signinError" class="form-error"></label>
+    <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Zadejte e-mail" autofocus
+               onchange="onInputChange(this)">
+        <label id="emailError" class="form-control-error-label"></label>
+    </div>
+    <div class="form-group">
+        <label for="password">Heslo</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Zadejte heslo"
+               onchange="onInputChange(this)">
+        <label id="passwordError" class="form-control-error-label"></label>
+    </div>
+    <button type="submit" class="btn btn-primary" id="signin">Přihlásit se</button>
+    <button type="button" class="btn btn-secondary" id="cancel">Zrušit</button>
+</form>

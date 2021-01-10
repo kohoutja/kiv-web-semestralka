@@ -1,0 +1,17 @@
+<h2>Příspěvky čekající na recenzi</h2><br>
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+    <tr class="bg-primary">
+        <th>Název</th>
+        <th>Stav</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for post in posts %}
+        <tr>
+            <td><a href="reviewPost/{{ post.title }}">{{ post.title }}</a></td>
+            <td>{{ post.reviewed == 0 ? "Recenze neprovedena": "Recenze provedena" }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

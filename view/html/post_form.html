@@ -1,0 +1,18 @@
+<h2>Přidat příspěvek</h2>
+<form method="get" id="createPostForm">
+    <label id="createPostError" class="form-error"></label>
+    <div class="form-group">
+        <label for="title">Název</label>
+        <input type="text" class="form-control" name="title" id="title" placeholder="Zadejte název příspěvku.">
+    </div>
+    <div class="form-group">
+        <label for="description">Popis</label>
+        <textarea class="form-control" rows="15" name="description" id="description"
+                  placeholder="Zadejte popis příspěvku."></textarea>
+    </div>
+    <div class="form-group">
+        <label for="attachment" class="">Vyberte přílohu příspěvku</label>
+        <input type="file" class="w-100" name="attachment" id="attachment" accept="application/pdf">
+    </div>
+    <button class="btn btn-primary" type="button" onclick="createPost()">Přidat</button>
+</form>

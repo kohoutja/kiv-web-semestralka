@@ -29,7 +29,7 @@ class Application
                     $this->method = $url[3];
                     unset($url[3]);
 
-                    $this->url_params = $url ? array_values($url) : [];
+                    $this->url_params = $url ? array_values($url) : array();
                 } else {
                     $this->method = "defaultMethod";
                 }

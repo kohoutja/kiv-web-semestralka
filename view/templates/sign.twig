@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="cz">
+<div class="container">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>{{ title | raw }}</title>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script type="text/javascript" src="/semestralka/js/signup_form_actions.js"></script>
+        <script type="text/javascript" src="/semestralka/js/signin_form_actions.js"></script>
+
+        <link rel="stylesheet" href="/semestralka/dependencies/vendor/twbs/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="/semestralka/dependencies/vendor/twbs/bootstrap/dist/css/bootstrap-grid.css">
+        <link rel="stylesheet" href="/semestralka/dependencies/vendor/twbs/bootstrap/dist/css/bootstrap-reboot.css">
+        <link rel="stylesheet" href="/semestralka/css/default.css">
+    </head>
+    <header class="border mt-2">
+        <div class="row mt-1 mb-1 header-toolbar" style="min-height: 20ex;display: flex;align-items: center;">
+            <div class="col-6 ml-4 container">
+                <h1>{{ title | raw }}</h1>
+            </div>
+        </div>
+    </header>
+    <body>
+    <div class="row ml-0 mr-0 mt-2 mb-2">
+        <div class="container">
+            {{ content | raw }}
+        </div>
+    </div>
+    </body>
+    <footer>
+        <p>Copyright © Jan Kohout</p>
+    </footer>
+</div>
+</html>

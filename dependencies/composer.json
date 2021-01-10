@@ -1,0 +1,15 @@
+{
+  "name": "vendor_name/dependencies",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "require": {
+    "components/jquery": ">=3.0",
+    "twbs/bootstrap": ">=4.1",
+    "twig/twig": ">=2",
+    "ext-pdo": "*"
+  },
+  "config": {
+    "php": "8.0"
+  }
+}

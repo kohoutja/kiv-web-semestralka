@@ -1,0 +1,150 @@
+%---------------------------------------------------------------------------------------------------
+%	HEADER
+%---------------------------------------------------------------------------------------------------
+\documentclass[12pt, a4paper]{article}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[unicode]{hyperref}
+\usepackage{pdfpages}
+\usepackage{verbatim}
+\usepackage{tabularx}
+
+
+%---------------------------------------------------------------------------------------------------
+% ZAČÁTEK DOKUMENTU
+%---------------------------------------------------------------------------------------------------
+
+\begin{document}
+%---------------------------------------------------------------------------------------------------
+% TITULNÍ STRANA
+%---------------------------------------------------------------------------------------------------
+
+\pagenumbering{Alph}
+\begin{titlepage}
+
+	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\begin{flushleft}
+\includegraphics[scale=0.3]{logo.png}
+\end{flushleft}
+\center
+\textsc{\LARGE Západočeská univerzita}\\[1cm]
+	
+\textsc{\Large Fakulta aplikovaných věd}\\[0.5cm]
+	
+\textsc{\large Katedra informatiky a výpočetní techniky}\\[0.5cm]
+
+\HRule\\[0.5cm]
+	
+{\huge\bfseries KIV/WEB - Semestrální práce}\\[0.5cm]
+{\bfseries Standardní zadání 1 - Knižní konference}\\[0.5cm]
+	
+\HRule\\[1.5cm]
+
+Jan Kohout\\
+
+\vfill
+
+\begin{tabularx}{\textwidth}{X l}
+	kohout@students.zcu.cz & \today \\
+	(A20B0142P)
+\end{tabularx}
+
+\end{titlepage}
+\pagenumbering{arabic}
+
+
+%---------------------------------------------------------------------------------------------------
+% OBSAH
+%---------------------------------------------------------------------------------------------------
+
+\tableofcontents
+\newpage
+
+%---------------------------------------------------------------------------------------------------
+% TĚLO DOKUMENTU
+%---------------------------------------------------------------------------------------------------
+
+\section{Použité technologie}
+\subsection{HTML (Hypertext Markup Language)}
+Značkovací jazyk pro tvorbu webových stránek. Slouží k nadefinování základního rozvržení a vzhledu webové stránky. Pro tvorbu semestrální práce byla použita verze HTML 5.
+\subsection{CSS (Cascading Style Sheets)}
+Kaskádové styly popisují vzhled jednotlivých HTML elementů. Odděluje charakteristiku stylu od struktury HTML.
+\subsection{Bootstrap}
+Front-end framework pro úpravu typografie, formulářů, tlačítek, navigace a dalších HTML elementů.
+\subsection{JavaScript}
+Objektově orientovaný programovací jazyk využíván převážně pro tvorbu webových aplikací. Obvykle jsou jím ovládány různé prvky webové stránky. To znamená, že se program napsaný v jazyce JavaScript spouští až po stažení webové stránky z internetu (tzv. na straně klienta). Interpretem je tedy v tomto případě přímo webový prohlížeč. V této práci není JavaScript využíván ve své standadrní podobě, ale více je využívána jeho knihovna jQuery.
+\subsection{jQuery}
+JavaScript knihovna obsahující funkce pro výběr a změnu DOM (Document Object Model) elementů, manipulaci s CSS, možnou obsluhu událostí HTML elementů. Odděluje chování stránky od HTML struktury.
+\subsection{AJAX (Asynchronous JavaScript and XML)}
+Umožňuje asynchronní komunikaci se serverem. Není proto vždy nutné obnovovat stránku. V práci je využit výhradně ke zpracování akcí vyvolaných z formulářů.
+\subsection{Twig}
+Šablonovací systém pro PHP umožňující oddělení aplikační vrtvy od vrstvy prezenční.
+\subsection{PHP}
+Skriptovací jazyk sloužící výhradně k vytváření dynamických webových stránek. Jeho kód je vykonáván pouze na serveru a vytváří HTML, které následně zasílá klientské aplikaci.
+\subsection{Composer}
+Umožňuje automatickou instalaci a aktualizaci závislostí pro PHP.
+
+\newpage
+
+\section{Adresářová struktura}
+\subsection{Kořenový adresář}
+Obsahuje pouze soubory: index.php, .htaccess a application.php.
+\subsection{Adresář controller}
+Obsahuje všechny PHP soubory, které se starají o funkčnost jednotlivých webových stránek aplikace (controllery).
+\subsection{Adresář css}
+Obsahuje soubor s kaskádovými styly.
+\subsection{Adresář db}
+Uchovává soubory:
+\begin{itemize}
+	\item \texttt{db\_info.php} - Obsahuje informace o databázi. Tyto informace jsou nutné pro umožnění programového přístupu do databáze.
+	\item \texttt{semestralka.sql} - Sql skript vytváří a plní daty databází pro webovou aplikaci.
+\end{itemize}
+\subsection{Adresář dependencies}
+Obsahuje všechny závislosti PHP aplikace (Twig, Bootstrap, jQuery, PDO).
+\subsection{Adresář doc}
+Obsahuje pouze pdf dokumentaci.
+\subsection{Adresář js}
+Obsahuje JavaScript soubory, které obsluhují akce jednotlivých formulářů aplikace.
+\subsection{Adresář model}
+Obsahuje soubor, který pracuje s databází aplikace. 
+\subsection{Adresář uploads}
+Slouží pouze pro uložení souborů, které byly nahrány na server uživateli.
+\subsection{Adresář view}
+Má pouze dva podadresáře: 
+\begin{itemize}
+	\item \texttt{html} - statické HTML stránky
+	\item \texttt{templates} - \texttt{.twig} šablony
+\end{itemize}
+\newpage
+
+\section{Architektura aplikace}
+Jelikož byla jednou z podmínek provedení semestrální práce použít architekturu MVC, snažil jsem se tak učinit.
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.65]{uml.png}
+	\caption{Provedení MVC architektury}
+\end{figure}
+
+\subsection{Model}
+Zajišťuje manipulaci s daty. Pomocí PDO (PHP Data Objects) a prepared statements čte a zapisuje do databáze.
+\subsection{View}
+Výstup na obrazovku uživatele. Jedná se buď to o statické HTML stránky nebo o šablony, které používají controllery pro zobrazování dat.
+\subsection{Application}
+Zpracovává požadavky od uživatele. Po zpracování nové URL vytvoří přislušný Controller a zavolá v něm metodu, která je třeba pro to, aby poskytla výstup požadovaný uživatelem.
+\subsection{Controller}
+Každá stránka aplikace má svůj vlastní PHP Controller. Pokud daná strana obsahuje nějaký formulář, či na ni lze vykonat nějakou akci, která vyžaduje odeslání žádosti na server, pak má takováto strana i vlastní JavaScript soubor, ve kterém se vyvolané akce zpracovávají. \par 
+Controllery pak také zajišťují zobrazení správných informací uživatelům nebo předávají uživateli zadaná data pomocí komunikace s Modelem.
+
+\newpage
+
+\section{Závěr}
+Semestrální práce by měla splňovat podmínky zadání. Avšak může obsahovat mírné nedostatky, které mohou pramenit z nedostatku zkušeností z vytváření webových aplikací. \par 
+Práce je zveřejněna na mém GitHub repozitáři, na adrese: \url{https://github.com/kohoutja/kiv-web-semestralka}.
+
+\end{document}

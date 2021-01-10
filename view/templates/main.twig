@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="cz">
+<div class="container">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>{{ title | raw }}</title>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script type="text/javascript" src="/semestralka/js/sign_bar_actions.js"></script>
+        <script type="text/javascript" src="/semestralka/js/default_actions.js"></script>
+        <script type="text/javascript" src="/semestralka/js/post_form_actions.js"></script>
+        <script type="text/javascript" src="/semestralka/js/users_management_actions.js"></script>
+        <script type="text/javascript" src="/semestralka/js/assign_actions.js"></script>
+        <script type="text/javascript" src="/semestralka/js/review_post_actions.js"></script>
+        <script type="text/javascript" src="/semestralka/js/posts_management_actions.js"></script>
+
+        <link rel="stylesheet" href="/semestralka/dependencies/vendor/twbs/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="/semestralka/dependencies/vendor/twbs/bootstrap/dist/css/bootstrap-grid.css">
+        <link rel="stylesheet" href="/semestralka/dependencies/vendor/twbs/bootstrap/dist/css/bootstrap-reboot.css">
+        <link rel="stylesheet" href="/semestralka/css/default.css">
+    </head>
+    <header class="border mt-2">
+        <div class="row mt-1 mb-1 header-toolbar" style="min-height: 8em;display: flex;align-items: center;">
+            <div class="col-6 ml-4 container">
+                <h1>{{ title | raw }}</h1>
+            </div>
+            <div class="col-auto mr-4 container">
+                {{ login | raw }}
+            </div>
+        </div>
+    </header>
+    <body>
+    <div class="row ml-0 mr-0 mt-2 mb-2">
+        <div class="float-left col-3 border-right pr-1">
+            <nav class="nav nav-pills">
+                <ul>
+                    {{ navigation | raw }}
+                </ul>
+            </nav>
+        </div>
+        <div class="col-9 float-right">
+            {{ content | raw }}
+        </div>
+    </div>
+    </body>
+    <footer>
+        <p>Copyright © Jan Kohout</p>
+    </footer>
+</div>
+</html>

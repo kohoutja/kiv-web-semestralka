@@ -1,0 +1,20 @@
+<table class="table table-striped table-hover table-bordered">
+    <thead>
+    <tr class="thead-dark">
+        <th class="align-middle">Téma</th>
+        <th class="align-middle">Kvalita zpracování</th>
+        <th class="align-middle">Jazyková úroveň</th>
+        <th class="align-middle">Průměr</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for review in reviews %}
+        <tr>
+            <td>{{ review.criterion1 }}</a></td>
+            <td>{{ review.criterion2 }}</td>
+            <td>{{ review.criterion3 }}</td>
+            <td>{{ review.overall }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

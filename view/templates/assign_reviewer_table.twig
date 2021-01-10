@@ -1,0 +1,28 @@
+<h2>Přidělit recenzenty</h2><br>
+<span id="assignError" class="form-error"></span>
+<table class="table table-striped table-hover table-bordered">
+    <thead>
+    <tr class="bg-primary">
+        <th>Název</th>
+        <th>Recenzent č.1</th>
+        <th>Recenzent č.2</th>
+        <th>Recenzent č.3</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for post in posts %}
+        <tr id="{{ post.id }}">
+            <td class="align-middle">{{ post.title }}</td>
+            <td class="align-middle">
+                {{ post.select0 | raw }}
+            </td>
+            <td class="align-middle">
+                {{ post.select1 | raw }}
+            </td>
+            <td class="align-middle">
+                {{ post.select2 | raw }}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

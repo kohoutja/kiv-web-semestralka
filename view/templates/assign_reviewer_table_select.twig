@@ -1,0 +1,7 @@
+<select class="form-control reviewer-select mb-2">
+    <option selected>- vyberte -</option>
+    {% for availableReviewer in reviewers %}
+        <option value="{{ availableReviewer.id }}">{{ availableReviewer.fullName }}</option>
+    {% endfor %}
+</select>
+<button type="button" class="btn btn-secondary add-reviewer float-right">Přidat</button>
